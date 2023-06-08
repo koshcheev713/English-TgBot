@@ -24,4 +24,5 @@ Bot's commands
 * /last_rand - Get word to translate from last
 
 Lib sourse: https://github.com/reo7sp/tgbot-cpp 
+
 All words save to "EnglishWords.txt" and "RussiaWords.txt" and next run read data from files.
