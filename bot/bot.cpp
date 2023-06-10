@@ -39,7 +39,7 @@ void writeFile(vector<string> &enList, vector<string> &ruList)
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	srand(time(0));
-	Bot bot("TOKEN HERE"); // bot tocken
+	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
 
 	// Settings
 	static int lastWords = 5; // how many last words
