@@ -119,6 +119,7 @@ int main() {
 				if (usrWord == newEn.at(randIndx))
 				{
 					bot.getApi().sendMessage(message->chat->id, "Yes! Good!");
+					bot.getApi().sendMessage(message->chat->id, newEn.at(randIndx) + " - " + newTrans.at(randIndx));
 				}
 				else
 				{
@@ -154,6 +155,7 @@ int main() {
 				if (usrWord == newEn.at(randIndx))
 				{
 					bot.getApi().sendMessage(message->chat->id, "Yes! Good!");
+					bot.getApi().sendMessage(message->chat->id, newEn.at(randIndx) + " - " + newTrans.at(randIndx));
 				}
 				else 
 				{
