@@ -39,11 +39,10 @@ void writeFile(vector<string> &enList, vector<string> &ruList)
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	srand(time(0));
-	Bot bot("TOKEN HERE"); // bot tocken
+	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
 
-	// Settings
-	static int lastWords = 5; // how many last words
-	static int indxCount;	  // size of vector (very importent)
+	static int lastWords = 7; // Settings	static int lastWords = 5; // how many last words
+	static int indxCount; 	  // size of vector (very importent)
 	static string usrWord;
 	static vector<string> newEn; 	// users new words
 	static vector<string> newTrans; // translate of word
@@ -103,13 +102,13 @@ int main() {
 		if (!newEn.empty() && !newTrans.empty())
 		{
 			do {
-				randIndx = rand() % indxCount;
+				randIndx = rand() % indxCount - 1;
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
 
-			bot.getApi().sendMessage(message->chat->id, newTrans.at(randIndx)); //send word
 			cout << "Rand indx = " << randIndx << endl;
+			bot.getApi().sendMessage(message->chat->id, newTrans.at(randIndx)); //send word
 			// get translate
 			bot.getEvents().onCommand("tr", [&bot](Message::Ptr message)
 			{
