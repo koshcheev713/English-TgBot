@@ -11,12 +11,12 @@
 using namespace std;
 using namespace TgBot;
 	
-bool uncorrect(vector<string> &check, string command)
+bool uncorrect(const vector<string> &check, const string& command)
 {
 	bool result;
-	for (auto k : check)
+	for (auto k : check) {
 		result = ((command == k) ? true : false);
-
+	}
 	return result;
 }
 
