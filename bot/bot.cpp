@@ -67,12 +67,13 @@ int main() {
 
 	newEn.erase(newEn.end());
 	newTrans.erase(newTrans.end());
-	indxCount = newTrans.size();
+	indxCount = newEn.size();
 
 	// Welcome message
 	bot.getEvents().onCommand("start", [&bot](Message::Ptr message)
 	{
-		bot.getApi().sendMessage(message->chat->id, "Hello! Documentation:\nGitHub: https://github.com/koshcheev713/English-TgBot\nGood luck!");
+		bot.getApi().sendMessage(message->chat->id, "Hello! How use? ↴\nGitHub: https://github.com/koshcheev713/English-TgBot\nGood luck!");
+		indxCount = newEn.size();
 	});
 
 	// Add new words
@@ -103,7 +104,7 @@ int main() {
 		{
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
-				randIndx = 0+rand() % newTrans.size();
+				randIndx = rand() % newTrans.size();
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
