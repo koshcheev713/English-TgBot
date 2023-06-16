@@ -102,7 +102,8 @@ int main() {
 		if (!newEn.empty() && !newTrans.empty())
 		{
 			do {
-				randIndx = rand() % indxCount - 1;
+				cout << "Vect's size = " << newTrans.size() << endl;
+				randIndx = 0+rand() % newTrans.size();
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
