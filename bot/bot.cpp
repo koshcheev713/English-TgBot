@@ -11,14 +11,10 @@
 #include <random>
 using namespace std;
 using namespace TgBot;
-<<<<<<< HEAD
-	
-=======
 
 random_device rd;
 mt19937 gen(rd());
 
->>>>>>> 0227241 (fix_rand)
 bool uncorrect(const vector<string> &check, const string& command)
 {
 	bool result;
@@ -117,12 +113,8 @@ int main() {
 		{
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
-<<<<<<< HEAD
-				randIndx = rand() % newTrans.size();
-=======
 //				randIndx = rand() % newTrans.size();
 				randIndx = genRand(0, newTrans.size());
->>>>>>> 0227241 (fix_rand)
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
