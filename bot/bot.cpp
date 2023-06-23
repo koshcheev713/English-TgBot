@@ -8,9 +8,17 @@
 #include <tgbot/tgbot.h>
 #include <fstream>
 #include <vector>
+#include <random>
 using namespace std;
 using namespace TgBot;
+<<<<<<< HEAD
 	
+=======
+
+random_device rd;
+mt19937 gen(rd());
+
+>>>>>>> 0227241 (fix_rand)
 bool uncorrect(const vector<string> &check, const string& command)
 {
 	bool result;
@@ -36,10 +44,15 @@ void writeFile(vector<string> &enList, vector<string> &ruList)
 	for (auto ru_words : ruList) { ruFile << ru_words << endl; } // wriet to file
 }
 
+int genRand(int min, int max)
+{
+	uniform_int_distribution<> dist(min, max);
+	return dist(gen);	
+}
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	srand(time(0));
-	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
+	Bot bot("6271070372:AAGsBMMFj4EDTjh8u0WRL5AMVSIkGkZXWvA"); // bot tocken
 
 	static int lastWords = 7; // Settings	static int lastWords = 5; // how many last words
 	static int indxCount; 	  // size of vector (very importent)
@@ -104,7 +117,12 @@ int main() {
 		{
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
+<<<<<<< HEAD
 				randIndx = rand() % newTrans.size();
+=======
+//				randIndx = rand() % newTrans.size();
+				randIndx = genRand(0, newTrans.size());
+>>>>>>> 0227241 (fix_rand)
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
@@ -139,7 +157,8 @@ int main() {
 		{
 			while (true)
 			{
-				randIndx = (indxCount-lastWords) + rand() % (indxCount-1);
+//				randIndx = (indxCount-lastWords) + rand() % (indxCount-1);
+				randIndx = genRand((indxCount-lastWords), newTrans.size());
 				if (randIndx < indxCount && indxLast != randIndx) break; 
 			}
 			indxLast = randIndx;
