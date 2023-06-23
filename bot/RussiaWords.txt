@@ -8,13 +8,4 @@
 через несколько дней
 сдача
 ухудшаться
-=======
-ggg
-fff
-send
-hello
-game
-game
-smle
-logf
->>>>>>> 0227241 (fix_rand)
+стикер

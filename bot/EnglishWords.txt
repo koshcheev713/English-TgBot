@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 knife
 awful
 trash bin
@@ -8,12 +7,4 @@ dot
 in several/few days
 change
 worsen
-=======
 sticker
-fff
-send
-hello
-game
-smile
-long
->>>>>>> 0227241 (fix_rand)
