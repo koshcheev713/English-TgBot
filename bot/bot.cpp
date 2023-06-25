@@ -114,7 +114,7 @@ int main() {
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
 //				randIndx = rand() % newTrans.size();
-				randIndx = genRand(0, newTrans.size());
+//				randIndx = genRand(0, newTrans.size());
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
@@ -150,7 +150,7 @@ int main() {
 			while (true)
 			{
 //				randIndx = (indxCount-lastWords) + rand() % (indxCount-1);
-				randIndx = genRand((indxCount-lastWords), newTrans.size());
+//				randIndx = genRand((indxCount-lastWords), newTrans.size());
 				if (randIndx < indxCount && indxLast != randIndx) break; 
 			}
 			indxLast = randIndx;
