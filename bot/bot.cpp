@@ -48,7 +48,7 @@ int genRand(int min, int max)
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 	srand(time(0));
-	Bot bot("6271070372:AAGsBMMFj4EDTjh8u0WRL5AMVSIkGkZXWvA"); // bot tocken
+	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
 
 	static int lastWords = 7; // Settings	static int lastWords = 5; // how many last words
 	static int indxCount; 	  // size of vector (very importent)
@@ -114,7 +114,7 @@ int main() {
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
 //				randIndx = rand() % newTrans.size();
-//				randIndx = genRand(0, newTrans.size());
+				randIndx = genRand(0, newTrans.size());
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
@@ -150,7 +150,7 @@ int main() {
 			while (true)
 			{
 //				randIndx = (indxCount-lastWords) + rand() % (indxCount-1);
-//				randIndx = genRand((indxCount-lastWords), newTrans.size());
+				randIndx = genRand((indxCount-lastWords), newTrans.size());
 				if (randIndx < indxCount && indxLast != randIndx) break; 
 			}
 			indxLast = randIndx;
