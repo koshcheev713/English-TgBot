@@ -2,7 +2,7 @@
 for (( ;; )) #forever cycle
 do
 	ret=$(ps aux | grep [.]/tgbot | wc -l)
-	if [ "$ret" -eq 0 ]
+	if [ "$ret" > 0 ]
 then {
 	echo "Running tgbot"
         sleep 10  #delay
