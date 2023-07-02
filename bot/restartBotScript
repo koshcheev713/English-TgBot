@@ -1,14 +1,19 @@
 #!/bin/bash
-	status=$(ps aux | grep [.]/tgbot | wc -l)
-	if [ "$status" -eq 0 ]
+for (( ;; )) #forever cycle
+do
+	ret=$(ps aux | grep [.]/tgbot | wc -l)
+	if [ "$ret" -eq 0 ]
 then {
-	echo "Run bot"
-	sleep 10 #delay 10 second
-	./tgbot  #run programm
-	exit 1
+	echo "Running tgbot"
+        sleep 10  #delay
+	./tgbot #command for run program
+	#exit 1
 }
-else {
-	echo "Bot already work"
-	exit 1
+else 
+{
+	echo "Bot working!"
+	sleep 10
+	#exit 1
 }
 fi;
+done
