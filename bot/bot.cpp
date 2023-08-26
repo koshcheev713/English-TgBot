@@ -55,7 +55,7 @@ int main() {
 	static string usrWord;
 	static vector<string> newEn; 	// users new words
 	static vector<string> newTrans; // translate of word
-	static vector<string> checkList {"/start", "/list", "/rand", "/last", "/lastRand"}; // command for ignore
+	static vector<string> checkList {"/start", "/list", "/rand", "/last", "/lastRand", "/how"}; // command for ignore
 
 	// READ DATA FROM FILES
    	fstream enFile("EnglishWords.txt", ios::in);
@@ -113,7 +113,6 @@ int main() {
 		{
 			do {
 				cout << "Vect's size = " << newTrans.size() << endl;
-//				randIndx = rand() % newTrans.size();
 				randIndx = genRand(0, newTrans.size());
 			}
 			while (lastIndx == randIndx);
@@ -149,7 +148,6 @@ int main() {
 		{
 			while (true)
 			{
-//				randIndx = (indxCount-lastWords) + rand() % (indxCount-1);
 				randIndx = genRand((indxCount-lastWords), newTrans.size());
 				if (randIndx < indxCount && indxLast != randIndx) break; 
 			}
@@ -177,6 +175,13 @@ int main() {
 		}
 	});
 
+	// Get right translate of random word
+   	bot.getEvents().onCommand("how", [&bot](Message::Ptr message)
+	{
+		if (!newEn.empty() && !newTrans.empty())
+			bot.getApi().sendMessage(message->chat->id, newEn.at(randIndx) + " - " + newTrans.at(randIndx));
+	});
+	
 	// Show all words
    	bot.getEvents().onCommand("list", [&bot](Message::Ptr message)
 	{
