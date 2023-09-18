@@ -47,7 +47,6 @@ int genRand(int min, int max)
 }
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-	srand(time(0));
 	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
 
 	static int lastWords = 13; // Settings	static int lastWords = 5; // how many last words
@@ -117,8 +116,7 @@ int main() {
 			}
 			while (lastIndx == randIndx);
 			lastIndx = randIndx;
-
-			cout << "Rand indx = " << randIndx << endl;
+			cout << "Random index = " << randIndx << endl;
 			bot.getApi().sendMessage(message->chat->id, newTrans.at(randIndx)); //send word
 			// get translate
 			bot.getEvents().onCommand("tr", [&bot](Message::Ptr message)
