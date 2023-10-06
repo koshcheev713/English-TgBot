@@ -50,7 +50,7 @@ int main() {
 	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
 
 	static int lastWords = 13; // Settings	static int lastWords = 5; // how many last words
-	static int indxCount; 	  // size of vector (very importnt)
+	static int indxCount; 	   // size of vector (very importnt)
 	static string usrWord;
 	static vector<string> newEn; 	// users new words
 	static vector<string> newTrans; // translate of word
@@ -180,6 +180,26 @@ int main() {
 			bot.getApi().sendMessage(message->chat->id, newEn.at(randIndx) + " - " + newTrans.at(randIndx));
 	});
 	
+	// Delete word
+	bot.getEvents().onCommand("delete", [&bot](Message::Ptr message) {
+		if (!newEn.empty() && !newTrans.empty()) {
+			usrWord = message->text; // get message
+			usrWord.erase (0, 8);	 // delete /delete
+			bot.getEvents().onCommand ("tr", [&bot](Message::Ptr message) {
+				string usrWordTranslate = message->text;
+				usrWordTranslate.erase (0, 8);
+				for (int i = 0; i < indxCount; ++i) {
+					if (newEn[i] == usrWord && newTrans[i] == usrWordTranslate) {
+						remove (newEn.at(i-1), newEn.at(i+1), usrWord);
+						remove (newTrans.at(i-1), newTrans.at(i+1), usrWordTranslate);
+						break;
+					}
+				}
+			});
+		}
+
+	});
+
 	// Show all words
    	bot.getEvents().onCommand("list", [&bot](Message::Ptr message)
 	{
