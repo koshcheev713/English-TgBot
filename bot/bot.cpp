@@ -181,17 +181,19 @@ int main() {
 	});
 	
 	// Delete word
-	bot.getEvents().onCommand("delete", [&bot](Message::Ptr message) {
+	bot.getEvents().onCommand("delete", [&bot](Message::Ptr message)
+	{
 		if (!newEn.empty() && !newTrans.empty()) {
 			usrWord = message->text; // get message
 			usrWord.erase (0, 8);	 // delete /delete
-			bot.getEvents().onCommand ("tr", [&bot](Message::Ptr message) {
+			bot.getEvents().onCommand ("tr", [&bot](Message::Ptr message)
+			{
 				string usrWordTranslate = message->text;
 				usrWordTranslate.erase (0, 8);
-				for (int i = 0; i < indxCount; ++i) {
+				for (int i = 0; i < newEn.size(); ++i) {
 					if (newEn[i] == usrWord && newTrans[i] == usrWordTranslate) {
-						remove (newEn.at(i-1), newEn.at(i+1), usrWord);
-						remove (newTrans.at(i-1), newTrans.at(i+1), usrWordTranslate);
+						newEn.erase (newEn.begin() + i);
+						newTrans.erase (newTrans.begin() + i);
 						break;
 					}
 				}
