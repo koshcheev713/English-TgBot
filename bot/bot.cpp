@@ -54,7 +54,7 @@ int main() {
 	static string usrWord;
 	static vector<string> newEn; 	// users new words
 	static vector<string> newTrans; // translate of word
-	static vector<string> checkList {"/start", "/list", "/rand", "/last", "/lastRand", "/how"}; // command for ignore
+	static vector<string> checkList {"/start", "/list", "/rand", "/last", "/lastRand", "/how", "/delete"}; // command for ignore
 
 	// READ DATA FROM FILES
    	fstream enFile("EnglishWords.txt", ios::in);
@@ -194,6 +194,10 @@ int main() {
 					if (newEn[i] == usrWord && newTrans[i] == usrWordTranslate) {
 						newEn.erase (newEn.begin() + i);
 						newTrans.erase (newTrans.begin() + i);
+						bot.getApi().sendMessage(message->chat->id, "Succesful deleted!");
+						break;
+					} else {
+						bot.getApi().sendMessage(message->chat->id, "Not succesful deleted!");
 						break;
 					}
 				}

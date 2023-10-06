@@ -51,5 +51,4 @@ spoon
 improve
 crucial
 ruogh
-rough
 reduce
