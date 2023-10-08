@@ -187,22 +187,35 @@ int main() {
 			usrWord = message->text; // get message
 			usrWord.erase (0, 8);	 // delete /delete
 			cout << "Word for deleting: " << usrWord << endl;
+			for (int i = 0; i < newEn.size(); ++i) {
+				if (usrWord == newEn.at(i)) {
+					cout << "Indx: " << i << endl;
+					newEn.erase (newEn.begin() + i);
+					bot.getApi().sendMessage(message->chat->id, "Succesful deleted! " + newEn.at(i));
+					break;
+				} else {
+					bot.getApi().sendMessage(message->chat->id, "Not succesful deleted!");
+					break;
+				}
+			}
+			
 			bot.getEvents().onCommand ("tr", [&bot](Message::Ptr message)
 			{
 				string usrWordTranslate = message->text;
 				usrWordTranslate.erase (0, 4);
 				cout << "Translate: " << usrWordTranslate << endl;
-				for (int i = 0; i < newEn.size(); ++i) {
-					if (newEn[i] == usrWord && newTrans[i] == usrWordTranslate) {
-						newEn.erase (newEn.begin() + i);
+				for (int i = 0; i < newTrans.size(); ++i) {
+					if (newTrans[i] == usrWordTranslate) {
+						cout << "Indx: " << i << endl;
 						newTrans.erase (newTrans.begin() + i);
-						bot.getApi().sendMessage(message->chat->id, "Succesful deleted!");
+						bot.getApi().sendMessage(message->chat->id, "Succesful deleted!" + newTrans.at(i));
 						break;
 					} else {
 						bot.getApi().sendMessage(message->chat->id, "Not succesful deleted!");
 						break;
 					}
 				}
+				
 			});
 		}
 	});
