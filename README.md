@@ -6,13 +6,17 @@
 1) Install librery tgbot
 
 	cd English-TgBot/lib/tgbot
+	
 	sudo apt-get install g++ make binutils cmake libboost-system-dev libssl-dev zlib1g-dev libcurl4-openssl-dev
 
 	Or
 
 	cd English-TgBot/lib/tgbot
+
 	cmake .
+
 	make -j4
+
 	sudo make install
 	
 2) Compiling project
