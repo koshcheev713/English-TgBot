@@ -52,3 +52,4 @@ improve
 crucial
 ruogh
 reduce
+cosy
