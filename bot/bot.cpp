@@ -188,12 +188,14 @@ int main() {
 			usrWord.erase (0, 8);	 // delete /delete
 			cout << "Word for deleting: " << usrWord << endl;
 			for (int i = 0; i < newEn.size(); ++i) {
+				cout << "Indx: " << i << endl;
 				if (usrWord == newEn.at(i)) {
-					cout << "Indx: " << i << endl;
+					cout << "Just delete " << usrWord << endl;
 					newEn.erase (newEn.begin() + i);
 					bot.getApi().sendMessage(message->chat->id, "Succesful deleted! " + newEn.at(i));
 					break;
 				} else {
+					cout << "Hasn't deleted " << usrWord << endl;
 					bot.getApi().sendMessage(message->chat->id, "Not succesful deleted!");
 					break;
 				}
