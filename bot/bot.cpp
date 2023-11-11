@@ -187,9 +187,9 @@ int main() {
 			usrWord = message->text; // get message
 			usrWord.erase (0, 8);	 // delete /delete
 			cout << "Word for deleting: " << usrWord << endl;
-			for (int i = 0; i < newEn.size(); ++i) {
-				cout << "Indx: " << i << endl;
+			for (int i = 0; i < indxCount; ++i) {
 				if (usrWord == newEn.at(i)) {
+					cout << "Indx: " << i << endl;
 					cout << "Just delete " << usrWord << endl;
 					newEn.erase (newEn.begin() + i);
 					bot.getApi().sendMessage(message->chat->id, "Succesful deleted! " + newEn.at(i));
@@ -206,7 +206,7 @@ int main() {
 				string usrWordTranslate = message->text;
 				usrWordTranslate.erase (0, 4);
 				cout << "Translate: " << usrWordTranslate << endl;
-				for (int i = 0; i < newTrans.size(); ++i) {
+				for (int i = 0; i < indxCount; ++i) {
 					if (newTrans[i] == usrWordTranslate) {
 						cout << "Indx: " << i << endl;
 						newTrans.erase (newTrans.begin() + i);
