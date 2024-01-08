@@ -188,13 +188,19 @@ int main() {
 			usrWord = message->text; // get message
 			usrWord.erase (0, 8);	 // delete /delete
 			cout << "Word for deleting: " << usrWord << endl;
+<<<<<<< HEAD
 			for (int i = 0; i < static_cast<int>(newEn.size()); ++i) {
+=======
+			for (int i = 0; i < indxCount; ++i) {
+>>>>>>> 7de7fb1c5ded6263abdbd3eaac5f5b61b94315a0
 				if (usrWord == newEn.at(i)) {
 					cout << "Indx: " << i << endl;
+					cout << "Just delete " << usrWord << endl;
 					newEn.erase (newEn.begin() + i);
 					bot.getApi().sendMessage(message->chat->id, "Succesful deleted! " + newEn.at(i));
 					break;
 				} else {
+					cout << "Hasn't deleted " << usrWord << endl;
 					bot.getApi().sendMessage(message->chat->id, "Not succesful deleted!");
 					break;
 				}
@@ -205,7 +211,11 @@ int main() {
 				string usrWordTranslate = message->text;
 				usrWordTranslate.erase (0, 4);
 				cout << "Translate: " << usrWordTranslate << endl;
+<<<<<<< HEAD
 				for (int i = 0; i < static_cast<int>(newTrans.size()); ++i) {
+=======
+				for (int i = 0; i < indxCount; ++i) {
+>>>>>>> 7de7fb1c5ded6263abdbd3eaac5f5b61b94315a0
 					if (newTrans[i] == usrWordTranslate) {
 						cout << "Indx: " << i << endl;
 						newTrans.erase (newTrans.begin() + i);
