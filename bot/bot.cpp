@@ -26,8 +26,8 @@ bool uncorrect(const vector<string> &check, const string& command)
 
 void writeFile(vector<string> &enList, vector<string> &ruList)
 {
-	fstream enFile("EnglishWords.txt", ios::out); // open new file
-	fstream ruFile("RussiaWords.txt",  ios::out); // open new file
+	fstream enFile("Words.txt", ios::out);           // open new file for words
+	fstream ruFile("WordsTranslate.txt",  ios::out); // open new file for translates
 
 	cout << "Write file!\n";
 	cout << enList.back() << endl;
@@ -45,9 +45,10 @@ int genRand(int min, int max)
 	uniform_int_distribution<> dist(min, max);
 	return dist(gen);	
 }
+
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot tocken
+	Bot bot("TOKEN"); // bot token
 
 	static int lastWords = 13; // Settings	static int lastWords = 5; // how many last words
 	static int indxCount; 	   // size of vector (very importnt)
@@ -57,8 +58,8 @@ int main() {
 	static vector<string> checkList {"/start", "/list", "/rand", "/last", "/lastRand", "/how", "/delete"}; // command for ignore
 
 	// READ DATA FROM FILES
-   	fstream enFile("EnglishWords.txt", ios::in);
-	fstream ruFile("RussiaWords.txt",  ios::in);
+   	fstream enFile("Words.txt", ios::in);           // File with words
+	fstream ruFile("WordsTranslate.txt",  ios::in); // File with translates
 	string str;
  	// read from file words
 	while (!enFile.eof())
@@ -187,7 +188,7 @@ int main() {
 			usrWord = message->text; // get message
 			usrWord.erase (0, 8);	 // delete /delete
 			cout << "Word for deleting: " << usrWord << endl;
-			for (int i = 0; i < newEn.size(); ++i) {
+			for (int i = 0; i < static_cast<int>(newEn.size()); ++i) {
 				if (usrWord == newEn.at(i)) {
 					cout << "Indx: " << i << endl;
 					newEn.erase (newEn.begin() + i);
@@ -204,7 +205,7 @@ int main() {
 				string usrWordTranslate = message->text;
 				usrWordTranslate.erase (0, 4);
 				cout << "Translate: " << usrWordTranslate << endl;
-				for (int i = 0; i < newTrans.size(); ++i) {
+				for (int i = 0; i < static_cast<int>(newTrans.size()); ++i) {
 					if (newTrans[i] == usrWordTranslate) {
 						cout << "Indx: " << i << endl;
 						newTrans.erase (newTrans.begin() + i);
