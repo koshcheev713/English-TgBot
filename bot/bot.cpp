@@ -48,7 +48,7 @@ int genRand(int min, int max)
 
 int main() {
 	// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= TELEGRAM BOT =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-	Bot bot("6271982519:AAGKd8lOWDXIFN1xZejCOb3rQAUKzmF1dqE"); // bot token
+	Bot bot(""); // bot token
 
 	static int lastWords = 13; // Settings	static int lastWords = 5; // how many last words
 	static int indxCount; 	   // size of vector (very importnt)
